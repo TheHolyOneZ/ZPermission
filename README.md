@@ -1,43 +1,52 @@
-# ZPermissions
+<div align="center">
+  <img src="src-tauri/icons/128x128.png" width="96" height="96" alt="ZPermissions" />
+  <h1>ZPermissions</h1>
+  <p><strong>Cross-platform file permission manager — built for power users who refuse to guess chmod values.</strong></p>
 
-**A cross-platform, open-source file permission manager built for power users.**
+  <p>
+    <a href="https://zsync.eu/zpermissions/"><img src="https://img.shields.io/badge/website-zsync.eu%2Fzpermissions-4a9eff?style=flat-square" alt="Website" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square" alt="License" /></a>
+    <a href="https://github.com/TheHolyOneZ/ZPermission/releases"><img src="https://img.shields.io/github/v/release/TheHolyOneZ/ZPermission?style=flat-square&color=4ade80" alt="Release" /></a>
+    <img src="https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey?style=flat-square" alt="Platforms" />
+    <a href="https://tauri.app"><img src="https://img.shields.io/badge/built%20with-Tauri%20v2-24c8db?style=flat-square" alt="Tauri" /></a>
+    <img src="https://img.shields.io/badge/telemetry-none-4ade80?style=flat-square" alt="No telemetry" />
+  </p>
 
-Manage POSIX chmod bits, Unix ACLs, and Windows access control lists through a unified spatial interface — no terminal required, no guessing octal values.
-
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey)](https://github.com/TheHolyOneZ/ZPermission/releases)
-[![Built with Tauri](https://img.shields.io/badge/built%20with-Tauri%20v2-24c8db)](https://tauri.app)
+  <p>
+    <a href="https://zsync.eu/zpermissions/">🌐 Website</a> ·
+    <a href="https://github.com/TheHolyOneZ/ZPermission/releases">📦 Releases</a> ·
+    <a href="https://github.com/TheHolyOneZ/ZPermission/issues">🐛 Issues</a>
+  </p>
+</div>
 
 ---
 
-## What It Does
+## What Is ZPermissions?
 
-ZPermissions gives you a visual, staged workflow for reading and modifying file system permissions:
+ZPermissions is a **desktop GUI** for reading and modifying file system permissions across Linux, macOS, and Windows — without touching the terminal. It wraps POSIX `chmod`/`chown`, Unix ACLs, and Windows file attributes in a **spatial dossier interface** designed around a staged-changes workflow: you build up a set of changes, review them, and apply atomically — or discard everything and start over.
 
-- **Read** permissions from any file or directory — owner, group, mode bits, ACL entries
-- **Stage** changes in a review queue before anything is written to disk
-- **Apply** atomically, or discard and start over
-- **Navigate** your filesystem with pinned quick-access locations (Home, Desktop, Documents, Downloads, Root)
-- **Inspect** identities — owner and group displayed as visual cards with per-principal R/W/X indicators
-- **Protected paths** blocked from writes on every platform — no accidental lockouts
+No cloud. No accounts. No telemetry. Runs entirely on your machine.
 
 ---
 
 ## Features
 
-| Feature | Linux | macOS | Windows |
-|---|---|---|---|
-| POSIX mode bits (chmod) | ✅ | ✅ | — |
-| Octal + symbolic notation | ✅ | ✅ | — |
-| setUID / setGID / sticky | ✅ | ✅ | — |
-| Owner / group display | ✅ | ✅ | ✅ |
-| Windows file attributes | — | — | ✅ |
-| Full ACL (planned) | 🔜 | 🔜 | 🔜 |
-| Staged change workflow | ✅ | ✅ | ✅ |
-| Protected path guard | ✅ | ✅ | ✅ |
-| Custom context menu | ✅ | ✅ | ✅ |
-| Pinned locations | ✅ | ✅ | ✅ |
-| Open links natively | ✅ | ✅ | ✅ |
+<table>
+<tr>
+<th>Feature</th><th>Linux</th><th>macOS</th><th>Windows</th>
+</tr>
+<tr><td>POSIX mode bits (chmod)</td><td>✅</td><td>✅</td><td>—</td></tr>
+<tr><td>Octal + symbolic notation</td><td>✅</td><td>✅</td><td>—</td></tr>
+<tr><td>setUID / setGID / sticky bit</td><td>✅</td><td>✅</td><td>—</td></tr>
+<tr><td>Owner &amp; group display</td><td>✅</td><td>✅</td><td>✅</td></tr>
+<tr><td>Windows file attributes</td><td>—</td><td>—</td><td>✅</td></tr>
+<tr><td>Full ACL editor</td><td>🔜</td><td>🔜</td><td>🔜</td></tr>
+<tr><td>Staged change workflow</td><td>✅</td><td>✅</td><td>✅</td></tr>
+<tr><td>Protected path guard</td><td>✅</td><td>✅</td><td>✅</td></tr>
+<tr><td>Pinned quick-access locations</td><td>✅</td><td>✅</td><td>✅</td></tr>
+<tr><td>Custom right-click context menu</td><td>✅</td><td>✅</td><td>✅</td></tr>
+<tr><td>Native link opening</td><td>✅</td><td>✅</td><td>✅</td></tr>
+</table>
 
 ---
 
@@ -45,42 +54,63 @@ ZPermissions gives you a visual, staged workflow for reading and modifying file 
 
 ### Linux
 
-**AppImage** (universal, no install required):
+<details>
+<summary><strong>AppImage</strong> — universal, no install required</summary>
+
 ```bash
 chmod +x ZPermissions_*.AppImage
 ./ZPermissions_*.AppImage
 ```
 
-**Debian / Ubuntu**:
+Works on any x86_64 Linux distribution.
+</details>
+
+<details>
+<summary><strong>Debian / Ubuntu / Mint / Pop!_OS</strong></summary>
+
 ```bash
 sudo dpkg -i ZPermissions_*.deb
 ```
+</details>
 
-**Fedora / RHEL / openSUSE**:
+<details>
+<summary><strong>Fedora / RHEL / CentOS / openSUSE</strong></summary>
+
 ```bash
 sudo rpm -i ZPermissions_*.rpm
 ```
+</details>
 
 ### macOS
 
-Download the `.dmg` for your architecture, open it, and drag ZPermissions to `/Applications`.
+Download the `.dmg` for your chip, open it, drag ZPermissions to `/Applications`.
 
-- **Apple Silicon (M1/M2/M3):** `ZPermissions_*_aarch64.dmg`
-- **Intel:** `ZPermissions_*_x64.dmg`
+| Chip | File |
+|---|---|
+| Apple Silicon (M1 / M2 / M3 / M4) | `ZPermissions_*_aarch64.dmg` |
+| Intel | `ZPermissions_*_x64.dmg` |
 
-macOS may require you to right-click → Open the first time due to Gatekeeper.
+> [!NOTE]
+> macOS may show a Gatekeeper warning on first launch. Right-click the app → **Open** to bypass it.
 
 ### Windows
 
-Run the NSIS installer:
-```
-ZPermissions_*_x64-setup.exe
-```
+<details>
+<summary><strong>NSIS Installer</strong> — recommended</summary>
 
-Or install silently via the MSI:
+Run `ZPermissions_*_x64-setup.exe`. Installs to the current user — no admin elevation required.
+</details>
+
+<details>
+<summary><strong>MSI Package</strong> — enterprise / silent install</summary>
+
 ```powershell
 msiexec /i ZPermissions_*_x64_en-US.msi /quiet
 ```
+</details>
+
+> [!NOTE]
+> Windows 10 (1903+) and Windows 11 are supported. WebView2 is installed silently on first run if not already present.
 
 ---
 
@@ -88,10 +118,17 @@ msiexec /i ZPermissions_*_x64_en-US.msi /quiet
 
 ### Prerequisites
 
-- [Rust](https://rustup.rs) (stable toolchain)
-- [Node.js](https://nodejs.org) 18+
-- [Tauri CLI](https://tauri.app/start/prerequisites/) v2
-- Platform build tools (see [Tauri prerequisites](https://tauri.app/start/prerequisites/))
+| Tool | Version |
+|---|---|
+| [Rust](https://rustup.rs) | stable toolchain |
+| [pnpm](https://pnpm.io) | 9+ |
+| [Tauri prerequisites](https://tauri.app/start/prerequisites/) | platform build tools |
+
+> [!IMPORTANT]
+> Linux requires additional system packages before building:
+> ```bash
+> sudo apt-get install libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+> ```
 
 ### Steps
 
@@ -101,19 +138,22 @@ cd ZPermission
 
 pnpm install
 
-# Development (hot reload)
+# Development — hot reload
 pnpm tauri dev
 
 # Production build
 pnpm tauri build
 ```
 
-Outputs land in `src-tauri/target/release/bundle/`.
+Bundles land in `src-tauri/target/release/bundle/`.
 
-### Type Check / Rust Check
+### Verify
 
 ```bash
+# TypeScript
 pnpm tsc --noEmit
+
+# Rust
 cd src-tauri && cargo check
 ```
 
@@ -123,10 +163,10 @@ cd src-tauri && cargo check
 
 | Layer | Technology |
 |---|---|
-| Backend | Rust |
+| Backend | Rust (stable) |
 | Desktop bridge | Tauri v2 |
 | Frontend | React 18 + TypeScript |
-| State | Zustand v5 |
+| State management | Zustand v5 |
 | Animations | Framer Motion v11 |
 | Styling | Tailwind CSS v4 |
 | Font | JetBrains Mono |
@@ -137,6 +177,8 @@ cd src-tauri && cargo check
 
 ```
 ZPermission/
+├── .github/workflows/
+│   └── release.yml               # CI/CD — builds all platforms on tag push
 ├── src/                          # React frontend
 │   ├── components/
 │   │   ├── layout/               # AppShell, TopBar, DossierPanel
@@ -144,33 +186,35 @@ ZPermission/
 │   │   ├── dossier/              # Permission matrix, view toggle
 │   │   ├── identity/             # Identity cards, ACL rows
 │   │   ├── about/                # About modal
-│   │   └── ui/                   # Context menu
-│   ├── store/                    # Zustand stores (file, permission, ui, context menu)
+│   │   └── ui/                   # Custom context menu
+│   ├── store/                    # Zustand stores
 │   ├── hooks/                    # usePermissions, useClock
 │   └── types/                    # Shared TypeScript types
 └── src-tauri/
     ├── src/
-    │   ├── commands.rs           # Tauri commands (get/set permissions, open URL, common dirs)
-    │   ├── lib.rs                # App builder, plugin registration
+    │   ├── commands.rs           # Tauri commands
+    │   ├── lib.rs                # App builder + plugin registration
     │   └── permissions/
     │       ├── types.rs          # Shared data structs
-    │       ├── unix.rs           # Linux + macOS implementation
-    │       └── windows.rs        # Windows implementation
-    └── capabilities/
-        └── default.json          # Tauri v2 permission grants
+    │       ├── unix.rs           # Linux + macOS (POSIX)
+    │       └── windows.rs        # Windows (file attributes)
+    ├── capabilities/
+    │   └── default.json          # Tauri v2 permission grants
+    └── tauri.conf.json           # Bundle config (icons, targets, signing)
 ```
 
 ---
 
 ## Protected Paths
 
-ZPermissions blocks writes to system-critical paths on each platform:
+> [!CAUTION]
+> ZPermissions hard-blocks writes to these paths on every platform. This cannot be overridden from the UI.
 
-**Linux:** `/proc` `/sys` `/dev` `/run` `/boot`
+**Linux:** `/proc` · `/sys` · `/dev` · `/run` · `/boot`
 
-**macOS:** `/System` `/System/Library` `/usr/bin` `/usr/sbin` `/sbin` `/bin` `/private/etc` `/private/var`
+**macOS:** `/System` · `/System/Library` · `/usr/bin` · `/usr/sbin` · `/sbin` · `/bin` · `/private/etc` · `/private/var`
 
-**Windows:** `C:\Windows\System32` `C:\Windows\SysWOW64` `C:\Windows\WinSxS`
+**Windows:** `C:\Windows\System32` · `C:\Windows\SysWOW64` · `C:\Windows\WinSxS`
 
 ---
 
@@ -178,6 +222,13 @@ ZPermissions blocks writes to system-critical paths on each platform:
 
 ZPermissions is free software released under the **GNU General Public License v3.0**.
 
+```
 Copyright (C) 2026 TheHolyOneZ
 
-You are free to use, modify, and distribute this software under the terms of the GPL-3.0. See [LICENSE](LICENSE) for the full text.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+```
+
+See [LICENSE](LICENSE) for the full text.
